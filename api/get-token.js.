@@ -1,0 +1,20 @@
+const axios = require('axios');
+
+export default async function handler(req, res) {
+    const { eat } = req.query;
+    if (!eat) return res.status(400).json({ error: 'EAT token missing' });
+
+    try {
+        // Garena ka login endpoint jahan se chota token milta hai
+        const response = await axios.get(`https://api.freefireservice.dnc.su/oauth/account:login?data=${eat}`);
+        
+        // Response mein '8' key ke andar chota Access Token hota hai
+        if (response.data && response.data['8']) {
+            res.status(200).json({ access_token: response.data['8'] });
+        } else {
+            res.status(400).json({ error: 'Invalid EAT token' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Server Down' });
+    }
+}
