@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth | NovaPortfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { fontFamily: { sans: ['Manrope', 'sans-serif'] }, colors: { bg: '#0B0B0F', card: '#111117', border: '#1E1E26', accent: '#6B8CFF', textSub: '#A0A0B0' } } } };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-bg text-white font-sans min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-xl rounded-2xl border border-border bg-card/80 backdrop-blur-xl p-6 space-y-4">
+      <h1 class="text-2xl font-bold">Welcome to NovaPortfolio</h1>
+      <p class="text-textSub">Create an account or sign in to manage your futuristic portfolio.</p>
+
+      <div class="grid grid-cols-2 gap-2 bg-bg rounded-lg p-1">
+        <button id="loginTab" class="py-2 rounded-md bg-accent">Login</button>
+        <button id="signupTab" class="py-2 rounded-md">Signup</button>
+      </div>
+
+      <form id="authForm" class="space-y-3">
+        <div id="signupFields" class="space-y-3 hidden">
+          <input name="username" placeholder="Username" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input name="fullName" placeholder="Full Name" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+        </div>
+        <input name="email" type="email" placeholder="Email" required class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+        <input name="password" type="password" placeholder="Password" required class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+        <button class="w-full bg-accent py-2 rounded-lg hover:opacity-90 transition">Continue</button>
+      </form>
+      <p id="authMessage" class="text-sm text-textSub"></p>
+      <a href="/" class="text-sm text-accent">← Back to home</a>
+    </div>
+
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

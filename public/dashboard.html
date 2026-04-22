@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | NovaPortfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { fontFamily: { sans: ['Manrope', 'sans-serif'] }, colors: { bg: '#0B0B0F', card: '#111117', border: '#1E1E26', accent: '#6B8CFF', textSub: '#A0A0B0' } } } };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-bg text-white font-sans min-h-screen p-4 md:p-8">
+    <main class="max-w-6xl mx-auto space-y-6">
+      <header class="flex flex-col md:flex-row justify-between md:items-center gap-4">
+        <div>
+          <h1 class="text-3xl font-extrabold">Dashboard</h1>
+          <p class="text-textSub">Manage profile, projects, and portfolio sharing.</p>
+        </div>
+        <div class="flex gap-2">
+          <button id="copyLink" class="px-4 py-2 border border-border rounded-lg hover:border-accent transition">Copy Portfolio Link</button>
+          <button id="logoutBtn" class="px-4 py-2 bg-accent rounded-lg">Logout</button>
+        </div>
+      </header>
+
+      <section class="grid lg:grid-cols-2 gap-6">
+        <form id="profileForm" class="rounded-2xl border border-border bg-card/80 backdrop-blur-xl p-5 space-y-3">
+          <h2 class="text-xl font-bold">Edit Profile</h2>
+          <input name="fullName" placeholder="Full Name" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <textarea name="bio" placeholder="Bio" class="w-full bg-bg border border-border rounded-lg px-3 py-2"></textarea>
+          <input name="skills" placeholder="Skills (comma separated)" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input name="github" placeholder="GitHub URL" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input name="linkedin" placeholder="LinkedIn URL" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input name="twitter" placeholder="Twitter URL" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input name="website" placeholder="Website URL" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input name="email" placeholder="Public contact email" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input type="file" name="profileImage" accept="image/*" class="w-full text-sm text-textSub" />
+          <button class="w-full bg-accent rounded-lg py-2">Save Profile</button>
+        </form>
+
+        <form id="projectForm" class="rounded-2xl border border-border bg-card/80 backdrop-blur-xl p-5 space-y-3">
+          <h2 class="text-xl font-bold">Add Project</h2>
+          <input name="title" required placeholder="Project title" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <textarea name="description" required placeholder="Description" class="w-full bg-bg border border-border rounded-lg px-3 py-2"></textarea>
+          <input name="tags" placeholder="Tags (comma separated)" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input name="externalLink" placeholder="External project URL" class="w-full bg-bg border border-border rounded-lg px-3 py-2" />
+          <input type="file" name="image" required accept="image/*" class="w-full text-sm text-textSub" />
+          <button class="w-full bg-accent rounded-lg py-2">Create Project</button>
+        </form>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold mb-3">Your Projects</h2>
+        <div id="projectsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </section>
+    </main>
+
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>
